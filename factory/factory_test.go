@@ -3,16 +3,18 @@ package factory
 import (
 	"log"
 	"testing"
+
+	"github.com/winnie-byun/design-pattern-go/common"
 )
 
 func TestShape(t *testing.T) {
-	var s Shape
-	s = NewShape(PointType, 1, 2)
+	var s common.Shape
+	s = NewShape(PointType)
 	log.Println(s.ToString())
 
-	s = NewShape(CircleType, 1, 2, 3)
+	s = NewShape(CircleType)
 	log.Println(s.ToString())
 
-	s = NewShape(LineType, 1, 2, 3, 4)
+	s = NewShape(LineType)
 	log.Println(s.ToString())
 }

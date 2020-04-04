@@ -3,7 +3,7 @@ package singleton
 import (
 	"sync"
 
-	pattern "github.com/winnie-byun/design-pattern-go"
+	"github.com/winnie-byun/design-pattern-go/common"
 )
 
 // Singleton creational design pattern restricts
@@ -14,12 +14,12 @@ import (
 
 var (
 	once       sync.Once
-	blockchain *pattern.Blockchain
+	blockchain *common.Blockchain
 )
 
-func NewBlockchain() *pattern.Blockchain {
+func NewBlockchain() *common.Blockchain {
 	once.Do(func() {
-		blockchain = pattern.NewBlockChain()
+		blockchain = common.NewBlockChain()
 	})
 
 	return blockchain

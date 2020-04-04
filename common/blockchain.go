@@ -1,4 +1,4 @@
-package pattern
+package common
 
 type Blockchain struct {
 	BlockNumber int
