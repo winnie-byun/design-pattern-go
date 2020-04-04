@@ -19,7 +19,7 @@ var (
 
 func NewBlockchain() *pattern.Blockchain {
 	once.Do(func() {
-		blockchain = &pattern.Blockchain{}
+		blockchain = pattern.NewBlockChain()
 	})
 
 	return blockchain

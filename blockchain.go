@@ -5,6 +5,10 @@ type Blockchain struct {
 	Blocks      [][]byte
 }
 
+func NewBlockChain() *Blockchain {
+	return &Blockchain{}
+}
+
 // TODO: need lock
 func (bc *Blockchain) NewBlock(block []byte) {
 	bc.BlockNumber++
