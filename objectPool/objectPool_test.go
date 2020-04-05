@@ -4,18 +4,20 @@ import (
 	"fmt"
 	"log"
 	"testing"
+	"time"
 )
 
 func TestPool(t *testing.T) {
-	p := (chan *TXhandler)(New(5))
+	p := New(5)
 
-	for i := 0; i <= 20; i++ {
+	for i := 0; i <= 100; i++ {
 		select {
 		case txHandler := <-p:
-			tx := fmt.Sprintf("%d sent %d $%d", i, 100-i, i)
-			txHandler.addTX(tx)
+			tx := fmt.Sprintf("%d sent %d $%d\n", i, 100-i, i)
+			txHandler.AddTX([]byte(tx))
 		default:
 			log.Println("TxPool is full")
+			time.Sleep(5 * time.Millisecond)
 		}
 	}
 
